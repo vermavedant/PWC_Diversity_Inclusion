@@ -1,18 +1,14 @@
 # PWC_Diversity_Inclusion
 
 ## Objective
-The objective of this data analysis project is to provide actionable insights that will enable the Human Resources department to improve gender balance at the executive management level. This analysis will focus on identifying existing challenges, uncovering trends, and highlighting opportunities to enhance diversity and inclusion within the organization. Specifically, the goals are to:
+The objective of this analysis is to provide actionable insights that will enable the Human Resources department to improve gender balance at the executive management level. This analysis will focus on identifying existing challenges, uncovering trends, and highlighting opportunities to enhance diversity and inclusion within the organization. Specifically, the goals are to:
 - **Evaluate Current Gender Distribution:** Analyze the gender composition across all levels of the organization, with a particular focus on executive management, to identify any imbalances.
-- **Identify Barriers to Progress:** Investigate potential obstacles preventing gender parity, such as biases in hiring, promotion processes, or organizational culture.
--
 
 ### Requested KPIs
-- Customers who left within the last month
-- Services each customer has signed up for: phone, multiple lines, internet, online security, online backup, device protection, tech
-support, and streaming TV and movies
-- Customer account information: how long as a customer, contract, payment method, paperless billing, monthly charges, total charges
-and number of tickets opened in the categories administrative and technical
-- Demographic info about customers – gender, age range, and if they have partners and dependents
+- hiring
+- promotion
+- performance
+- turnover
 
 ## Data Source
 The data is given by Pwc Switzerland.
@@ -27,157 +23,122 @@ The data is given by Pwc Switzerland.
 
 ### 2. Explore the Data in Excel, in this stage, the data is being explored, and after closely examining the dataset, the following points were observed:
 - **Data Exploration:** Initial exploration of the dataset to understand its structure and identify necessary columns for analysis.
-- After exploring the data, it is found that the data is already cleaned but need to change some column name, change data type and need to add one extra column using M code in Power Queru Editor. These changes will be done in Power BI.
+- After exploring the data, it is found that the data is already cleaned, there are many cells that are blank or empty but we can use "Filter" option in Power BI to deal with empty cells.
 
 ### 3. Visualize the data in Power BI
 
-Before creating visualizations, we need to transform the data in the Power Query Editor as well as need to add one extra column:
-
-1. **Transform Data**:
-- In this stage, we have changed the columns name and corrected their data type.
-- Extra column "Tenure_In_Years" is created in Power Query Editor.
-
-### Visualizations
-Now coming on to Visualizations, we have used:
-Cards, Donut Chart, Pie Chart, Stacked Bar Chart & Stacked Column Chart
+Coming on to Visualizations, we have used:
+Cards, Clustered Column Chart, Stacked Bar Chart, Line Chart & Gauge and Filters are used to filter data according to departments, time type and Age group.
 
 #### 1. Cards
 
-The card shows all the number of services Churned customers has signed for, number of tech and admin tickets are opened by Churned customers.
+The cards give a quick insight on total number of employees, number of men & women employees, no of leavers and other useful insights 
 
-#### 2. Donut Chart
+#### 2. Clustered Column Chart
 
-This chart shows the number of lost customers using different internet services and the subscription type they were having.
+This chart gives the visual on number of men and women Job Level after FY20 promotion FY21 promotion
 
-#### 3. Pie Chart
+#### 3. Stacked Bar Chart
 
-This chart shows the no of lost customers on the basis of their Gender. And in another Pie chart, it shows the proportion of paperless billing of lost customers.
+This chart gives the visual representation of number of hiring and promotion of men and women in FY20 and FY21.
 
-#### 4. Stacked Bar Chart
+#### 4. Line Chart
 
-It shows the tenure of lost customers, how long the customer had joined us.
+It shows the number of leavers from men and women by their Age group.
 
-#### 5. Stacked Column Chart
+#### 5. Gauge
 
-This chart shows the lost customers using different payment method.
+It shows the average performance rating of men and women
 
 ![Screenshot (235)](https://github.com/user-attachments/assets/d1a287cc-2304-4efc-91cd-f8ceb551f46b)
 
 ## DAX Measures
 
-### 1. Count of Custm_Id
+### 1. # of leavers
 ```sql
-Count of Custm_Id = COUNTA(Churn_Data[customerID])
+# of leavers = CALCULATE(COUNT('Pharma Group AG'[FY20 leaver?]), 'Pharma Group AG'[FY20 leaver?]="Yes")
 ```
 
-### 2. Count of Dependents
+### 2. # men leaver
 ```sql
-Count of Dependents = CALCULATE(
-        COUNTA(Churn_Data[Dependents]),
-        Churn_Data[Dependents] = "Yes",
-        Churn_Data[Churn]= "Yes"
+# men leaver = CALCULATE(COUNT('Pharma Group AG'[In base group for turnover FY20]), 
+'Pharma Group AG'[In base group for turnover FY20]= "Y",
+'Pharma Group AG'[FY20 leaver?]="Yes", 'Pharma Group AG'[Gender]="Male")
+```
+
+### 3. # women leaver
+```sql
+# women leaver = CALCULATE(COUNT('Pharma Group AG'[In base group for turnover FY20]),
+'Pharma Group AG'[In base group for turnover FY20]= "Y",
+'Pharma Group AG'[FY20 leaver?]="Yes", 'Pharma Group AG'[Gender]="Female")
+
+```
+
+### 4. # of men
+```sql
+# of men = CALCULATE(DISTINCTCOUNT('Pharma Group AG'[Employee ID]), 
+ 'Pharma Group AG'[Gender]="Male")
+
+```
+
+### 5. # of women
+```sql
+# of women = CALCULATE(DISTINCTCOUNT('Pharma Group AG'[Employee ID]),
+'Pharma Group AG'[Gender]= "Female")
     )
 ```
 
-### 3. Average Speed of Answer
+### 6. % of emp promoted(FY21)
 ```sql
-Average Speed of Answer = CALCULATE(AVERAGE(Call_Center[Speed_of_Answers (S)]), Call_Center[Answered (Y/N)]="Y")
-
-```
-
-### 4. Count of DeviceProtection
-```sql
-Count of DeviceProtection = CALCULATE(
-    COUNTA(Churn_Data[DeviceProtection]),
-    Churn_Data[DeviceProtection] = "Yes",
-        Churn_Data[Churn]= "Yes"
-)
-
-```
-
-### 5. Count of MultipleLines
-```sql
-Count of MultipleLines = CALCULATE(
-        COUNTA(Churn_Data[MultipleLines]),
-        Churn_Data[MultipleLines] = "Yes",
-        Churn_Data[Churn]= "Yes"
-    )
-```
-
-### 6. Count of OnlineBackup
-```sql
-Count of OnlineBackup = CALCULATE(
-    COUNTA(Churn_Data[OnlineBackup]),
-    Churn_Data[OnlineBackup] = "Yes",
-        Churn_Data[Churn]= "Yes"
+% of emp promoted(FY21) = DIVIDE(CALCULATE(COUNT('Pharma Group AG'[Promotion in FY21?]),
+'Pharma Group AG'[Promotion in FY21?]= "Yes")
+, CALCULATE(COUNT('Pharma Group AG'[Promotion in FY21?])))
 )
 ```
 
-### 7. Count of OnlineSecurity 
+### 7. % of turnover
 ```sql
-Count of OnlineSecurity = CALCULATE(
-    COUNTA(Churn_Data[OnlineSecurity]),
-    Churn_Data[OnlineSecurity] = "Yes",
-        Churn_Data[Churn]= "Yes"
+% of turnover = DIVIDE(CALCULATE(COUNT('Pharma Group AG'[In base group for turnover FY20]),
+'Pharma Group AG'[In base group for turnover FY20]= "Y", 'Pharma Group AG'[FY20 leaver?]="Yes")
+, CALCULATE(COUNT('Pharma Group AG'[In base group for turnover FY20])))
 )
 ```
 
-### 8. Count of PaperlessBilling
+### 8. % of women promoted
 ```sql
-Count of PaperlessBilling = CALCULATE(
-    COUNTA(Churn_Data[PaperlessBilling]),
-    Churn_Data[PaperlessBilling] = "Yes",
-        Churn_Data[Churn]= "Yes"
+% of women promoted = DIVIDE('Pharma Group AG'[count of women promoted], 'Pharma Group AG'[count of promo in FY21])
 )
 ```
 
-### 9. Count of Partner
+### 9. % of men promoted
 ```sql
-Count of Partner = CALCULATE(
-        COUNTA(Churn_Data[Partner]),
-        Churn_Data[Partner] = "Yes",
-        Churn_Data[Churn]= "Yes"
-    )
+% of men promoted = DIVIDE('Pharma Group AG'[count of men promoted], 'Pharma Group AG'[count of promo in FY21])
 
 ```
 
-### 10. Count of PhoneService
+### 10. Average performance rating men
 ```sql
-Count of PhoneService = 
-        CALCULATE(
-        COUNTA(Churn_Data[PhoneService]),
-        Churn_Data[PhoneService] = "Yes",
-        Churn_Data[Churn]= "Yes"
-    )
+Average performance rating men = CALCULATE(AVERAGE('Pharma Group AG'[FY20 Performance Rating]), 
+'Pharma Group AG'[Gender]="Male")
 
 ```
 
-### 11. Count of TechSupport
+### 11. Average performance rating women
 ```sql
-Count of TechSupport = CALCULATE(
-    COUNTA(Churn_Data[TechSupport]),
-    Churn_Data[TechSupport] = "Yes",
-        Churn_Data[Churn]= "Yes"
-)
-
-    )
+Average performance rating women = CALCULATE(AVERAGE('Pharma Group AG'[FY20 Performance Rating]), 
+'Pharma Group AG'[Gender]="Female")
 
 ```
 
-### 12. Lost Customers 
+### 12. % of men hire in FY20
 ```sql
-Lost Customers = CALCULATE(COUNTA(Churn_Data[Churn]), Churn_Data[Churn]="Yes")
+% of men hire in FY20 = DIVIDE('Pharma Group AG'[count of new hire men], 'Pharma Group AG'[count of new hire in FY20])
 
 ```
 
-### 13. Lost Monthly Charges
+### 13. % of women hire in FY20
 ```sql
-Lost Monthly Charges = CALCULATE(SUM(Churn_Data[MonthlyCharges]), Churn_Data[Churn]= "Yes")
-```
-
-### 14. Lost Total Charges
-```sql
-Lost Total Charges = CALCULATE(SUM(Churn_Data[TotalCharges]), Churn_Data[Churn]= "Yes")
+% of women hire in FY20 = DIVIDE('Pharma Group AG'[count of new hire women], 'Pharma Group AG'[count of new hire in FY20])
 ```
 
 
@@ -185,16 +146,32 @@ Lost Total Charges = CALCULATE(SUM(Churn_Data[TotalCharges]), Churn_Data[Churn]=
 
 Based on the data, here are some insights and findings that can be derived using the visualizations from Power BI:
 
-#### **Customer Churn:** Lost 1,869 customers last month.
-#### **Financial Impact:** Due to these churned customers:
-- The loss in monthly charges is $139.13k.
-- The loss in total charges is $2.86M.
-#### **Customer Tenure:** Lost 999 customers who joined a year ago.
-#### **Subscription Type:** 1,655 customers who had month-to-month subscriptions left.
-#### **Demographics:** Among the customers we lost:
-- 669 had partners
-- 476 were senior citizens
-- 326 had dependents
-#### **Service Impact:** In terms of internet service:
-- 1,297 customers who had fiber optic internet service left.
-- This represents a 69.4% loss in fiber optic service customers.
+#### **Executive Management Level:** Number of women at executive level after FY20 and FY21 promotion
+- After FY20 promotion, there are 16 employees at this position out of which only 2 are women, rest are men.
+- After FY21 promotion, there are 19 employees at this position out of which only 3 are women, rest are men.
+
+#### **Employees Promoted:** 51 employees were promoted in FY 2021 out of 500, in percentage it’s go around 10.20 %.
+- Percentage of women promoted are 35% i.e. 18 women promoted out of 51
+
+#### **New Hire (FY20):** 66 new hires:
+- 52% are women
+- 48% are men
+
+#### **Departments:** 
+- **Finance:** Total emp 18, 12 are men 6 are women.
+- **HR:** Total emp 17, 5 are men, 12 are women.
+- **Internal Services:** Total emp 72, 48 are men and 24 are women.
+- **Operations:** Total emp 203, 103 are men and 100 are women.
+- **Sales & Marketing:** Total emp 168, 109 are men and 59 are women.
+- **Strategy:** Total emp 22, 18 are men and 4 are women.
+
+#### **Leavers:** 47 employees left the company in FY20
+- 26 are men
+- 21 are women
+
+#### The age group **40-49** has the highest number of leavers, with a count of **12** from the female group.
+
+#### Average performance rating of men is **2.41**
+
+#### Average performance rating of men is **2.42**
+
