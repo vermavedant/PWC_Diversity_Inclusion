@@ -169,18 +169,18 @@ DIVIDE('Pharma Group AG'[count of new hire men],
 
 Based on the data, here are some insights and findings that can be derived using the visualizations from Power BI:
 
-#### **Executive Management Level:** Number of women at executive level after FY20 and FY21 promotion
+**Executive Management Level:** Number of women at executive level after FY20 and FY21 promotion
 - After FY20 promotion, there are 16 employees at this position out of which only 2 are women, rest are men.
 - After FY21 promotion, there are 19 employees at this position out of which only 3 are women, rest are men.
 
-#### **Employees Promoted:** 51 employees were promoted in FY 2021 out of 500, in percentage it’s go around 10.20 %.
+**Employees Promoted:** 51 employees were promoted in FY 2021 out of 500, in percentage it’s go around 10.20 %.
 - Percentage of women promoted are 35% i.e. 18 women promoted out of 51
 
-#### **New Hire (FY20):** 66 new hires:
+**New Hire (FY20):** 66 new hires:
 - 52% are women
 - 48% are men
 
-#### **Departments:** 
+**Departments:** 
 - **Finance:** Total emp 18, 12 are men 6 are women.
 - **HR:** Total emp 17, 5 are men, 12 are women.
 - **Internal Services:** Total emp 72, 48 are men and 24 are women.
@@ -188,13 +188,13 @@ Based on the data, here are some insights and findings that can be derived using
 - **Sales & Marketing:** Total emp 168, 109 are men and 59 are women.
 - **Strategy:** Total emp 22, 18 are men and 4 are women.
 
-#### **Leavers:** 47 employees left the company in FY20
+**Leavers:** 47 employees left the company in FY20
 - 26 are men
 - 21 are women
 
-#### The age group **40-49** has the highest number of leavers, with a count of **12** from the female group.
+The age group **40-49** has the highest number of leavers, with a count of **12** from the female group.
 
-#### Average performance rating of men is **2.41**
+Average performance rating of men is **2.41**
 
-#### Average performance rating of men is **2.42**
+Average performance rating of men is **2.42**
 
