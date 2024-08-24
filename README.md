@@ -28,6 +28,7 @@ The data is given by Pwc Switzerland.
 ### 3. Visualize the data in Power BI
 
 Coming on to Visualizations, we have used:
+
 Cards, Clustered Column Chart, Stacked Bar Chart, Line Chart & Gauge and Filters are used to filter data according to departments, time type and Age group.
 
 #### 1. Cards
