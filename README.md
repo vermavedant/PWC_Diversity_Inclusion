@@ -57,6 +57,7 @@ It shows the average performance rating of men and women
 ### 1. # of leavers
 ```sql
 # of leavers = CALCULATE(COUNT('Pharma Group AG'[FY20 leaver?]), 'Pharma Group AG'[FY20 leaver?]="Yes")
+
 ```
 
 ### 2. # men leaver
@@ -64,6 +65,7 @@ It shows the average performance rating of men and women
 # men leaver = CALCULATE(COUNT('Pharma Group AG'[In base group for turnover FY20]), 
 'Pharma Group AG'[In base group for turnover FY20]= "Y",
 'Pharma Group AG'[FY20 leaver?]="Yes", 'Pharma Group AG'[Gender]="Male")
+
 ```
 
 ### 3. # women leaver
@@ -86,6 +88,7 @@ It shows the average performance rating of men and women
 # of women = CALCULATE(DISTINCTCOUNT('Pharma Group AG'[Employee ID]),
 'Pharma Group AG'[Gender]= "Female")
     )
+
 ```
 
 ### 6. % of emp promoted(FY21)
@@ -94,6 +97,7 @@ It shows the average performance rating of men and women
 'Pharma Group AG'[Promotion in FY21?]= "Yes")
 , CALCULATE(COUNT('Pharma Group AG'[Promotion in FY21?])))
 )
+
 ```
 
 ### 7. % of turnover
@@ -102,12 +106,14 @@ It shows the average performance rating of men and women
 'Pharma Group AG'[In base group for turnover FY20]= "Y", 'Pharma Group AG'[FY20 leaver?]="Yes")
 , CALCULATE(COUNT('Pharma Group AG'[In base group for turnover FY20])))
 )
+
 ```
 
 ### 8. % of women promoted
 ```sql
 % of women promoted = DIVIDE('Pharma Group AG'[count of women promoted], 'Pharma Group AG'[count of promo in FY21])
 )
+
 ```
 
 ### 9. % of men promoted
