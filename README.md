@@ -50,7 +50,7 @@ It shows the number of leavers from men and women by their Age group.
 
 It shows the average performance rating of men and women
 
-![Screenshot (235)](https://github.com/user-attachments/assets/d1a287cc-2304-4efc-91cd-f8ceb551f46b)
+https://github.com/user-attachments/assets/9257d1d7-ce5e-4775-9c2d-356fd4ab8239
 
 ## DAX Measures
 
