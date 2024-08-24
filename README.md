@@ -56,13 +56,16 @@ It shows the average performance rating of men and women
 
 ### 1. # of leavers
 ```sql
-# of leavers = CALCULATE(COUNT('Pharma Group AG'[FY20 leaver?]), 'Pharma Group AG'[FY20 leaver?]="Yes")
+# of leavers =
+CALCULATE(COUNT('Pharma Group AG'[FY20 leaver?]), 
+'Pharma Group AG'[FY20 leaver?]="Yes")
 
 ```
 
 ### 2. # men leaver
 ```sql
-# men leaver = CALCULATE(COUNT('Pharma Group AG'[In base group for turnover FY20]), 
+# men leaver = 
+CALCULATE(COUNT('Pharma Group AG'[In base group for turnover FY20]), 
 'Pharma Group AG'[In base group for turnover FY20]= "Y",
 'Pharma Group AG'[FY20 leaver?]="Yes", 'Pharma Group AG'[Gender]="Male")
 
@@ -70,7 +73,8 @@ It shows the average performance rating of men and women
 
 ### 3. # women leaver
 ```sql
-# women leaver = CALCULATE(COUNT('Pharma Group AG'[In base group for turnover FY20]),
+# women leaver = 
+CALCULATE(COUNT('Pharma Group AG'[In base group for turnover FY20]),
 'Pharma Group AG'[In base group for turnover FY20]= "Y",
 'Pharma Group AG'[FY20 leaver?]="Yes", 'Pharma Group AG'[Gender]="Female")
 
@@ -78,14 +82,16 @@ It shows the average performance rating of men and women
 
 ### 4. # of men
 ```sql
-# of men = CALCULATE(DISTINCTCOUNT('Pharma Group AG'[Employee ID]), 
+# of men = 
+CALCULATE(DISTINCTCOUNT('Pharma Group AG'[Employee ID]), 
  'Pharma Group AG'[Gender]="Male")
 
 ```
 
 ### 5. # of women
 ```sql
-# of women = CALCULATE(DISTINCTCOUNT('Pharma Group AG'[Employee ID]),
+# of women = 
+CALCULATE(DISTINCTCOUNT('Pharma Group AG'[Employee ID]),
 'Pharma Group AG'[Gender]= "Female")
     )
 
@@ -93,7 +99,8 @@ It shows the average performance rating of men and women
 
 ### 6. % of emp promoted(FY21)
 ```sql
-% of emp promoted(FY21) = DIVIDE(CALCULATE(COUNT('Pharma Group AG'[Promotion in FY21?]),
+% of emp promoted(FY21) = 
+DIVIDE(CALCULATE(COUNT('Pharma Group AG'[Promotion in FY21?]),
 'Pharma Group AG'[Promotion in FY21?]= "Yes")
 , CALCULATE(COUNT('Pharma Group AG'[Promotion in FY21?])))
 )
@@ -102,7 +109,8 @@ It shows the average performance rating of men and women
 
 ### 7. % of turnover
 ```sql
-% of turnover = DIVIDE(CALCULATE(COUNT('Pharma Group AG'[In base group for turnover FY20]),
+% of turnover = 
+DIVIDE(CALCULATE(COUNT('Pharma Group AG'[In base group for turnover FY20]),
 'Pharma Group AG'[In base group for turnover FY20]= "Y", 'Pharma Group AG'[FY20 leaver?]="Yes")
 , CALCULATE(COUNT('Pharma Group AG'[In base group for turnover FY20])))
 )
@@ -111,40 +119,50 @@ It shows the average performance rating of men and women
 
 ### 8. % of women promoted
 ```sql
-% of women promoted = DIVIDE('Pharma Group AG'[count of women promoted], 'Pharma Group AG'[count of promo in FY21])
+% of women promoted = 
+DIVIDE('Pharma Group AG'[count of women promoted], 
+'Pharma Group AG'[count of promo in FY21])
 )
 
 ```
 
 ### 9. % of men promoted
 ```sql
-% of men promoted = DIVIDE('Pharma Group AG'[count of men promoted], 'Pharma Group AG'[count of promo in FY21])
+% of men promoted = 
+DIVIDE('Pharma Group AG'[count of men promoted], 
+'Pharma Group AG'[count of promo in FY21])
 
 ```
 
 ### 10. Average performance rating men
 ```sql
-Average performance rating men = CALCULATE(AVERAGE('Pharma Group AG'[FY20 Performance Rating]), 
+Average performance rating men = 
+CALCULATE(AVERAGE('Pharma Group AG'[FY20 Performance Rating]), 
 'Pharma Group AG'[Gender]="Male")
 
 ```
 
 ### 11. Average performance rating women
 ```sql
-Average performance rating women = CALCULATE(AVERAGE('Pharma Group AG'[FY20 Performance Rating]), 
+Average performance rating women = 
+CALCULATE(AVERAGE('Pharma Group AG'[FY20 Performance Rating]), 
 'Pharma Group AG'[Gender]="Female")
 
 ```
 
 ### 12. % of men hire in FY20
 ```sql
-% of men hire in FY20 = DIVIDE('Pharma Group AG'[count of new hire men], 'Pharma Group AG'[count of new hire in FY20])
+% of men hire in FY20 = 
+DIVIDE('Pharma Group AG'[count of new hire men], 
+'Pharma Group AG'[count of new hire in FY20])
 
 ```
 
 ### 13. % of women hire in FY20
 ```sql
-% of women hire in FY20 = DIVIDE('Pharma Group AG'[count of new hire women], 'Pharma Group AG'[count of new hire in FY20])
+% of women hire in FY20 =
+ DIVIDE('Pharma Group AG'[count of new hire women], 
+'Pharma Group AG'[count of new hire in FY20])
 ```
 
 
