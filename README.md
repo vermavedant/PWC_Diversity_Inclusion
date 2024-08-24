@@ -73,7 +73,7 @@ CALCULATE(COUNT('Pharma Group AG'[In base group for turnover FY20]),
 
 ### 3. # women leaver
 ```sql
-# women leaver = 
+# women leaver =
 CALCULATE(COUNT('Pharma Group AG'[In base group for turnover FY20]),
 'Pharma Group AG'[In base group for turnover FY20]= "Y",
 'Pharma Group AG'[FY20 leaver?]="Yes", 'Pharma Group AG'[Gender]="Female")
@@ -93,7 +93,6 @@ CALCULATE(DISTINCTCOUNT('Pharma Group AG'[Employee ID]),
 # of women = 
 CALCULATE(DISTINCTCOUNT('Pharma Group AG'[Employee ID]),
 'Pharma Group AG'[Gender]= "Female")
-    )
 
 ```
 
