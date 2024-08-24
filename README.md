@@ -3,7 +3,7 @@
 ## Objective
 The objective of this data analysis project is to provide actionable insights that will enable the Human Resources department to improve gender balance at the executive management level. This analysis will focus on identifying existing challenges, uncovering trends, and highlighting opportunities to enhance diversity and inclusion within the organization. Specifically, the goals are to:
 - **Evaluate Current Gender Distribution:** Analyze the gender composition across all levels of the organization, with a particular focus on executive management, to identify any imbalances.
--**Identify Barriers to Progress:** Investigate potential obstacles preventing gender parity, such as biases in hiring, promotion processes, or organizational culture.
+- **Identify Barriers to Progress:** Investigate potential obstacles preventing gender parity, such as biases in hiring, promotion processes, or organizational culture.
 -
 
 ### Requested KPIs
