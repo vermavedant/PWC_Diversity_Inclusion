@@ -168,7 +168,7 @@ DIVIDE('Pharma Group AG'[count of new hire men],
 
 ### 5. Conclusions from the Analysis
 
-Based on the data, here are some insights and findings that can be derived using the visualizations from Power BI:
+Based on the data, here are some insights and findings that is derived using the visualizations from Power BI:
 
 **Executive Management Level:** Number of women at executive level after FY20 and FY21 promotion
 - After FY20 promotion, there are 16 employees at this position out of which only 2 are women, rest are men.
